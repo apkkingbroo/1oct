@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>All In One Hack</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --primary:#2563eb;
+      --secondary:#10b981;
+      --danger:#ef4444;
+      --bg:#0f172a;
+      --card-bg:rgba(255,255,255,0.05);
+    }
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif}
+    body{
+      background:linear-gradient(180deg,#0f172a,#1e293b);
+      min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:20px;color:#f1f5f9;
+    }
+
+    /* Header */
+    .header{display:flex;align-items:center;gap:10px;margin-bottom:20px}
+    .header img{width:36px;height:36px;border-radius:50%}
+    .header span{font-weight:700;font-size:18px}
+
+    /* Grid */
+    .app-list{width:100%;max-width:600px;display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px}
+    .app-card{background:var(--card-bg);padding:14px;border-radius:12px;text-align:center;backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.08)}
+    .app-card img{width:60px;height:60px;border-radius:10px;margin-bottom:6px}
+    .app-card h3{font-size:13px;margin-bottom:6px}
+    .start-btn{background:var(--primary);color:#fff;border:none;padding:6px 12px;border-radius:8px;font-size:12px;cursor:pointer}
+
+    /* Dialog (countdown) */
+    .dialog{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#1e293b;padding:16px;border-radius:10px;z-index:1000;display:none;text-align:center;width:260px}
+    .dialog h2{font-size:14px;margin-bottom:10px}
+    .countdown{font-weight:700;font-size:16px;color:var(--secondary)}
+
+    /* Loader */
+    #loader{position:fixed;inset:0;background:rgba(0,0,0,0.85);display:none;align-items:center;justify-content:center;flex-direction:column;gap:14px;z-index:1200}
+    #loadingText{font-size:15px;color:#e0f2fe}
+    .dots{display:flex;gap:6px}
+    .dot{width:8px;height:8px;border-radius:50%;background:#fff;animation:bounce 0.6s infinite alternate}
+    .dot:nth-child(2){animation-delay:0.2s}
+    .dot:nth-child(3){animation-delay:0.4s}
+    @keyframes bounce{from{transform:translateY(0)}to{transform:translateY(-10px)}}
+
+    /* Iframe */
+    #hiddenFrame{position:fixed;top:0;left:0;width:100%;height:100%;border:none;display:none;z-index:200}
+
+    /* Floating Icon (smaller now) */
+    #floatingIcon{position:fixed;bottom:60px;right:16px;width:40px;height:40px;border-radius:50%;background:var(--secondary);display:none;align-items:center;justify-content:center;color:#fff;font-size:18px;z-index:300;cursor:pointer;box-shadow:0 4px 10px rgba(0,0,0,0.3)}
+
+    /* Overlay background */
+    #overlay{position:fixed;inset:0;background:rgba(0,0,0,0.6);backdrop-filter:blur(4px);z-index:600;display:none}
+
+    /* Deposit Box */
+    #depositBox{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:300px;background:#1e293b;padding:16px;border-radius:12px;z-index:700;display:none;text-align:center}
+    #depositBox h2{font-size:18px;margin-bottom:8px}
+    #message{margin:8px 0;font-size:13px;color:#38bdf8;min-height:20px}
+    .deposit-cta{display:flex;gap:6px}
+    .btn{flex:1;padding:8px;border:none;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer}
+    .btn-contact{background:var(--primary);color:white}
+    .btn-open{background:var(--secondary);color:white}
+    .btn-hide{background:var(--danger);color:white}
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <img src="https://i.ibb.co/VcWgp8mh/x.jpg" alt="Logo">
+    <span>Apkmodderkings</span>
+  </div>
+
+  <!-- App Grid -->
+  <div class="app-list">
+    <div class="app-card"><img src="https://i.ibb.co/pvXx2ZBR/x.jpg"><h3>55 Club</h3><button class="start-btn" onclick="openDialog('https://www.in979.in/#/register?invitationCode=83221522037')">Start</button></div>
+    <div class="app-card"><img src="https://i.ibb.co/RpW3GYRk/x.jpg"><h3>82 Lottery</h3><button class="start-btn" onclick="openDialog('https://82lottery9.com/#/register?invitationCode=14244992621')">Start</button></div>
+    <div class="app-card"><img src="https://i.ibb.co/Gv4cCLRd/x.jpg"><h3>BDGwin</h3><button class="start-btn" onclick="openDialog('https://bdgwin.cc/#/register?invitationCode=372171400520')">Start</button></div>
+    <div class="app-card"><img src="https://i.ibb.co/VWKvPtmT/x.jpg"><h3>Big Daddy</h3><button class="start-btn" onclick="openDialog('https://bdg-4.com/#/register?invitationCode=b7yIo501953')">Start</button></div>
+    <div class="app-card"><img src="https://i.ibb.co/LDLB7gCD/x.jpg"><h3>91 Club</h3><button class="start-btn" onclick="openDialog('https://91777.in/#/register?invitationCode=111355811375')">Start</button></div>
+    <div class="app-card"><img src="https://i.ibb.co/LzrzcJG2/x.jpg"><h3>Tiranga</h3><button class="start-btn" onclick="openDialog('https://www.tirangaclub.org/#/register?invitationCode=357811313367')">Start</button></div>
+    <div class="app-card"><img src="https://i.ibb.co/Zp5GT8G9/x.jpg"><h3>Bharat Club</h3><button class="start-btn" onclick="openDialog('https://bhtclub0.com/#/register?invitationCode=884382272723')">Start</button></div>
+    <div class="app-card"><img src="https://i.ibb.co/7Jf11hj1/x.jpg"><h3>Big Mumbai</h3><button class="start-btn" onclick="openDialog('https://www.gurlamandhata.com/#/register?invitationCode=231142312313')">Start</button></div>
+  </div>
+
+  <!-- Countdown Dialog -->
+  <div class="dialog" id="depositDialog">
+    <h2>Create account and deposit to continue</h2>
+    <div class="countdown" id="countdown"></div>
+  </div>
+
+  <!-- Loader -->
+  <div id="loader">
+    <div id="loadingText"></div>
+    <div class="dots">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+  </div>
+
+  <!-- Iframe -->
+  <iframe id="hiddenFrame"></iframe>
+
+  <!-- Floating Icon -->
+  <div id="floatingIcon">⚡</div>
+
+  <!-- Overlay -->
+  <div id="overlay"></div>
+
+  <!-- Deposit Box -->
+  <div id="depositBox">
+    <h2>Deposit Fund</h2>
+    <div id="message"></div>
+    <div class="deposit-cta">
+      <button class="btn btn-contact" onclick="contactNow()">CONTACT</button>
+      <button class="btn btn-open" onclick="depositNow()">OPEN HACK</button>
+      <button class="btn btn-hide" onclick="closeDeposit()">HIDE</button>
+    </div>
+  </div>
+
+  <script>
+    let countdownTimer;
+    let redirectLink = "";
+
+    function openDialog(link) {
+      redirectLink = link;
+      const dialog = document.getElementById("depositDialog");
+      const countdownEl = document.getElementById("countdown");
+      dialog.style.display = "block";
+      let seconds = 3;
+      countdownEl.textContent = `Redirecting in ${seconds}...`;
+      clearInterval(countdownTimer);
+
+      countdownTimer = setInterval(() => {
+        seconds--;
+        countdownEl.textContent = `Redirecting in ${seconds}...`;
+        if (seconds <= 0) {
+          clearInterval(countdownTimer);
+          dialog.style.display = "none";
+          showLoader();
+          const frame = document.getElementById("hiddenFrame");
+          frame.src = redirectLink;
+          frame.style.display = "block";
+          frame.onload = () => { document.getElementById("loader").style.display = "none"; };
+          setTimeout(()=>{document.getElementById("loader").style.display="none";},15000);
+          document.getElementById("floatingIcon").style.display = "flex";
+        }
+      }, 1000);
+    }
+
+    function showLoader() {
+      const loader = document.getElementById("loader");
+      loader.style.display = "flex";
+      const text = "Link is opening soon, please wait...";
+      let i = 0;
+      const el = document.getElementById("loadingText");
+      el.textContent = "";
+      const interval = setInterval(() => {
+        if (i < text.length) {
+          el.textContent += text.charAt(i);
+          i++;
+        } else {
+          clearInterval(interval);
+        }
+      }, 60);
+    }
+
+    // Floating icon
+    const floatingIcon = document.getElementById("floatingIcon");
+    const depositBox = document.getElementById("depositBox");
+    const overlay = document.getElementById("overlay");
+    const messageBox = document.getElementById("message");
+
+    floatingIcon.addEventListener("click", () => {
+      overlay.style.display="block";
+      depositBox.style.display = "block";
+      messageBox.textContent = "";
+    });
+
+    function closeDeposit(){ depositBox.style.display="none"; overlay.style.display="none"; }
+    function depositNow(){ messageBox.textContent="⚠ Please deposit first"; }
+    function contactNow(){ window.open("https://telegram.me/ZebDex","_blank"); }
+  </script>
+</body>
+</html>
